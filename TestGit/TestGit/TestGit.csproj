@@ -46,10 +46,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -152,6 +160,51 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminAccount.cs">
+      <DependentUpon>DBUserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Airplane.cs">
+      <DependentUpon>DBUserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AirplaneClass.cs">
+      <DependentUpon>DBUserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AirplaneInfo.cs">
+      <DependentUpon>DBUserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AirplaneType.cs">
+      <DependentUpon>DBUserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\City.cs">
+      <DependentUpon>DBUserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBUserModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBUserModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBUserModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBUserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBUserModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBUserModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FlightSchedule.cs">
+      <DependentUpon>DBUserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profile.cs">
+      <DependentUpon>DBUserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Route.cs">
+      <DependentUpon>DBUserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ticket.cs">
+      <DependentUpon>DBUserModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,10 +216,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\DBUserModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DBUserModel.Context.cs</LastGenOutput>
+      <DependentUpon>DBUserModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DBUserModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBUserModel.edmx</DependentUpon>
+      <LastGenOutput>DBUserModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\DBUserModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBUserModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DBUserModel.edmx.diagram">
+      <DependentUpon>DBUserModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -196,7 +266,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
